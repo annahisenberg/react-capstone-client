@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "index.css",
+	"sources": [
+		"styles/main.scss",
+		"styles/navigation/Navbar.scss"
+	],
+	"names": [],
+	"mappings": "ACAA,AAAA,GAAG,CAAC;EACA,gBAAgB,EAAE,UAAU,GAI/B;EAHI,AAAD,YAAU,CAAC;IACP,KAAK,EAAE,IAAI,GACd"
+}

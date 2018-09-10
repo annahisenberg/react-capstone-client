@@ -1,5 +1,6 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
+nav {
+  background-color: aquamarine; }
+  nav--primary {
+    color: blue; }
+
+/*# sourceMappingURL=data:application/json;base64,ewoJInZlcnNpb24iOiAzLAoJImZpbGUiOiAic3JjL2luZGV4LmNzcyIsCgkic291cmNlcyI6IFsKCQkic3JjL3N0eWxlcy9tYWluLnNjc3MiLAoJCSJzcmMvc3R5bGVzL25hdmlnYXRpb24vTmF2YmFyLnNjc3MiCgldLAoJIm5hbWVzIjogW10sCgkibWFwcGluZ3MiOiAiQUNBQSxBQUFBLEdBQUcsQ0FBQztFQUNBLGdCQUFnQixFQUFFLFVBQVUsR0FJL0I7RUFISSxBQUFELFlBQVUsQ0FBQztJQUNQLEtBQUssRUFBRSxJQUFJLEdBQ2QiCn0= */
