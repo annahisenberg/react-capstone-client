@@ -1,0 +1,12 @@
+language: node_js
+node_js: node
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: heroku
+  api_key:
+    secure: u2EUkplx7P3mjdVQ3xCCL+ZwHR9yYq0p6Vodc9yFymJOUb69KcFPmIO5EfSC01Boewg4rbaQUUCPa0bkJWqyb3dv1ZwahoI0/1fK6NB+zFkQeyIKNSKjELPh4+/TyFAOBQuq+7iR+BrTi62nuVGosYfMpJXICT9mDI3B3xh01lO+CLnAvELJGJRENJoPqNgV4gFEEAu0evmxVT4sEPqAooW+Anv860Rk0ze/9R4mQBzsEjzX21tBZLD2bo8lfXSIERVa4CsLMpkeZzu6eN3kvWjL3970sGH9VHUC7/Sm591NbxhSKvNAtJabSzsutQ0874xECflzJITUUIRsz7pVmHRsoGR0N0rgEwFnlrgXx4Ijc83ROeZMUa7VTuErP0idgF0q3qHPaQuo5G7FIQbkqWktrl0HIg7R4YCqw4yFojoyNhXQSVFZc/VhLxt7nr/ASjliL1YaxXIKtFjfNpfCL+WC7N/D65WarCPOGXSPcwIbNKZDWfXFnGfyYn8Sb/Om8s1/QNjUvEKdlTq+O8WxHYD8nmK/0UwvNwK8Emg1Snqyl2p9y/Ws3vLzoFt6DWdajUFa7/3jINvKYzlIA4Eh6wptamGy/XhOkhJxFu7DNfogp4LZDJqzSuN8uAs6iz0xcieE7D/pHMs9x5eFZueTya308rwX9ELndS9KLOuqTH8=
+  app: aqueous-springs-80005
+  on:
+    repo: annahisenberg/react-capstone-client
