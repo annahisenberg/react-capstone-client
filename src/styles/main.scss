@@ -1,1 +1,7 @@
-@import './navigation/Navbar'
+@import './variables';
+@import './mixins/media';
+// Components
+@import './navigation/Navbar';
+@import './header/header';
+@import './Blog/blog';
+@import './PostForm/PostForm';

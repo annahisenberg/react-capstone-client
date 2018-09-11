@@ -1,0 +1,6 @@
+.flex-container {
+    display: block;
+    @include desktop {
+        display: flex;
+    }
+}

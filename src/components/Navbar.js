@@ -10,9 +10,9 @@ const Navbar = () => {
                 <li><Link to="/sign-up">Sign up</Link></li>
                 <li><Link to="/login">Login</Link></li>
                 <li><a href="https://www.instagram.com/">Instagram</a></li>
-                <li><Link to="/make-post">Make new post</Link></li>
+                <li><Link to="/post-form">Make new post</Link></li>
+                <li><Link to="/">All Posts</Link></li>
             </ul>
-            <input type="text" placeholder="Search.." />
         </nav>
     )
 };
