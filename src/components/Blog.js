@@ -11,6 +11,7 @@ import PostForm from './PostForm';
 import RegistrationPage from './registration-page';
 import Login from './login';
 import Post from './Post';
+import contactForm from './contact-form';
 import { refreshAuthToken } from '../actions/auth';
 
 
@@ -20,6 +21,7 @@ import {
     Switch,
     withRouter
 } from 'react-router-dom';
+
 
 
 export class Blog extends Component {
@@ -64,8 +66,10 @@ export class Blog extends Component {
                             <Route exact path="/post-form" component={PostForm} />
                             <Route exact path="/registration-page" component={RegistrationPage} />
                             <Route exact path="/login" component={Login} />
+                            <Route exact path="/posts" component={Posts} />
                             <Route exact path="/" component={Posts} />
-                            <Route exact path="/:postId" component={Post} />
+                            <Route exact path="/contact" component={contactForm} />
+                            <Route exact path="/posts/:postId" component={Post} />
                         </Switch>
                     </div>
                     <div className="flex-container__sidebar">

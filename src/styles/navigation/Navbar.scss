@@ -10,6 +10,14 @@ nav {
         list-style: none;
         @include desktop {
             display: flex;
+            justify-content: space-around;
+        }
+    }
+    li {
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: white;
         }
     }
 }

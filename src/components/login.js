@@ -3,13 +3,30 @@ import { Field, reduxForm, focus } from 'redux-form';
 import Input from './input';
 import { login } from '../actions/auth';
 import { required, nonEmpty } from '../validators';
+import { loadAuthToken } from '../local-storage';
+import { connect } from 'react-redux';
 
 export class Login extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoggedIn: false
+        }
+    }
     onSubmit(values) {
-        return this.props.dispatch(login(values.username, values.password));
+        this.props.dispatch(login(values.username, values.password));
+        if (this.props.authToken) {
+            this.setState({
+                isLoggedIn: true
+            })
+        }
     }
 
     render() {
+        let message;
+        if (this.state.isLoggedIn === true) {
+            message = <div>You are currently logged in.</div>
+        }
         let error;
         if (this.props.error) {
             error = (
@@ -25,6 +42,7 @@ export class Login extends React.Component {
                     this.onSubmit(values)
                 )}>
                 {error}
+                {message}
                 <label htmlFor="username">Username</label>
                 <Field
                     component={Input}
@@ -48,6 +66,12 @@ export class Login extends React.Component {
         );
     }
 };
+
+const mapStateToProps = state => ({
+    authToken: state.auth
+});
+
+Login = connect(mapStateToProps)(Login);
 
 export default reduxForm({
     form: 'login',

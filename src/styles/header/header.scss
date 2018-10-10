@@ -1,3 +1,18 @@
 header {
     padding: 12% 0;
+    text-align: center;
+    a {
+        text-decoration: none;
+        h1 {
+            font-family: $cursive-font;
+            color: $dark-gray;
+            margin-bottom: 0;
+            font-size: 47px;
+        }
+        h2 {
+            font-family: $font-stack;
+            color: $lighter-pink;
+            margin-top: 0;
+        }
+    }
 }

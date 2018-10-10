@@ -72,7 +72,7 @@ export const login = (username, password) => dispatch => {
                     new SubmissionError({
                         _error: message
                     })
-                );
+                ).catch(el => el)
             })
     )
 };
