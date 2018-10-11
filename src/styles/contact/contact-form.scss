@@ -1,0 +1,18 @@
+label {
+    display: block;
+    font-family: $font-stack;
+    color: $dark-gray;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+button {
+    @include button;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 11px;
+}

@@ -8,6 +8,7 @@ const Header = () => {
                 <h1>Annah Isenberg</h1>
                 <h2>Every Cook and Cranny</h2>
             </Link>
+            <hr />
         </header>
     )
 };

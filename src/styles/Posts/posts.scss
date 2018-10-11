@@ -1,0 +1,19 @@
+#post {
+    h2 {
+        text-transform: uppercase;
+        font-family: $font-stack;
+        color: $dark-gray;
+        font-weight: bold;
+        font-size: 19px;
+        letter-spacing: 3px;
+    }
+    img {
+        width: 600px;
+    }
+    p {
+        @include paragraph;
+    }
+    button {
+        @include button;
+    }
+}

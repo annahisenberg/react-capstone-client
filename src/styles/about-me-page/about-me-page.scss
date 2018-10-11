@@ -1,0 +1,7 @@
+#about-h2 {
+    width: 600px;
+}
+
+#about-p {
+    @include paragraph;
+}

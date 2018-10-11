@@ -2,5 +2,12 @@
     display: block;
     @include desktop {
         display: flex;
+        justify-content: space-around;
+    }
+}
+
+.flex-container__sidebar {
+    @include desktop {
+        width: 18rem;
     }
 }

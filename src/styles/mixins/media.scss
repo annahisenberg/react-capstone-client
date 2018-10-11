@@ -3,3 +3,28 @@
         @content
     }
 }
+
+@mixin button {
+    background: $blue-green;
+    border-color: $blue-green;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    padding: 15px 40px;
+    text-transform: uppercase;
+    transition: all .1s ease-in-out;
+    &:hover {
+        background: white;
+        color: $blue-green;
+    }
+}
+
+@mixin paragraph {
+    color: $dark-gray;
+    font-family: $font-stack;
+    width: 600px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+}

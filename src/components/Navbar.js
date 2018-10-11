@@ -23,7 +23,6 @@ export class Navbar extends React.Component {
                     <li><Link to="/about-me-page">About Me</Link></li>
                     <li><Link to="/registration-page">Sign up</Link></li>
                     <li><Link to="/login">Login</Link></li>
-                    <li><a href="https://www.instagram.com/">Instagram</a></li>
                     <li><Link to="/post-form">Make new post</Link></li>
                     <li><Link to="/posts">All Posts</Link></li>
                     <li><Link to="/contact">Contact me</Link></li>
