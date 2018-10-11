@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Sidebar = () => {
     return (
@@ -12,16 +13,16 @@ const Sidebar = () => {
                 <h3>Let's Connect!</h3>
                 <ul>
                     <li>
-                        <a href="https://www.facebook.com/">facebook</a>
+                        <a href="https://www.facebook.com/"><FontAwesomeIcon icon="coffee" /></a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/">instagram</a>
+                        <a href="https://www.instagram.com/"><FontAwesomeIcon icon="instagram" /></a>
                     </li>
                     <li>
-                        <a href="https://www.youtube.com/">youtube</a>
+                        <a href="https://www.youtube.com/"><FontAwesomeIcon icon="coffee" /></a>
                     </li>
                     <li>
-                        <a href="https://www.twitter.com/">twitter</a>
+                        <a href="https://www.twitter.com/"><FontAwesomeIcon icon="coffee" /></a>
                     </li>
                 </ul>
             </section>

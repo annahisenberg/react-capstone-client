@@ -1,3 +1,8 @@
+@mixin font {
+    color: $dark-gray;
+    font-family: $font-stack;
+}
+
 @mixin desktop {
     @media only screen and (min-width: 600px) {
         @content
@@ -21,8 +26,7 @@
 }
 
 @mixin paragraph {
-    color: $dark-gray;
-    font-family: $font-stack;
+    @include font;
     width: 600px;
     font-size: 15px;
     letter-spacing: 0.5px;
