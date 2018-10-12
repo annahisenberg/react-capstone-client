@@ -72,7 +72,7 @@ export class ContactForm extends React.Component {
             <form
                 onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
             >
-                <h3>Contact Me</h3>
+                <h2>Contact Me</h2>
                 {successMessage}
                 {errorMessage}
                 <Field
@@ -95,7 +95,6 @@ export class ContactForm extends React.Component {
                     component={Input}
                     label="Message"
                     validate={[required, nonEmpty]}
-                    row
                 />
                 <button
                     type="submit"

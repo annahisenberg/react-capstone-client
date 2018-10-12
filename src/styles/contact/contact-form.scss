@@ -16,3 +16,7 @@ input {
     padding: 10px;
     font-size: 11px;
 }
+
+h2 {
+    @include font;
+}

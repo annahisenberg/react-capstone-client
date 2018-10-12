@@ -5,6 +5,7 @@ import { login } from '../actions/auth';
 import { required, nonEmpty } from '../validators';
 import { loadAuthToken } from '../local-storage';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 export class Login extends React.Component {
     constructor(props) {
@@ -47,6 +48,7 @@ export class Login extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
+                <h2>LOGIN</h2>
                 {error}
                 {message}
                 <label htmlFor="username">Username</label>
@@ -68,6 +70,7 @@ export class Login extends React.Component {
                 <button disabled={this.props.pristine || this.props.submitting}>
                     Log in
                 </button>
+                <Link to="/registration-page">Sign Up</Link>
             </form>
         );
     }

@@ -22,10 +22,10 @@ import {
     withRouter
 } from 'react-router-dom';
 
-// import { library } from '@fortawesome/fontawesome-svg-core'
-// import { faFacebook, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
-// library.add(faFacebook, faCoffee);
+library.add(faCoffee);
 
 
 export class Blog extends Component {
