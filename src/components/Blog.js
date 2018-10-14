@@ -10,6 +10,7 @@ import AboutMePage from './About-me-page';
 import PostForm from './PostForm';
 import RegistrationPage from './registration-page';
 import Login from './login';
+import Homepage from './homepage';
 import Post from './Post';
 import contactForm from './contact-form';
 import { refreshAuthToken } from '../actions/auth';
@@ -29,6 +30,10 @@ library.add(faCoffee);
 
 
 export class Blog extends Component {
+    componentWillMount() {
+        console.log(this.props.location.pathname);
+    }
+
     componentDidUpdate(prevProps) {
         if (!prevProps.loggedIn && this.props.loggedIn) {
             // When we are logged in, refresh the auth token periodically
@@ -71,14 +76,17 @@ export class Blog extends Component {
                             <Route exact path="/registration-page" component={RegistrationPage} />
                             <Route exact path="/login" component={Login} />
                             <Route exact path="/posts" component={Posts} />
-                            <Route exact path="/" component={Posts} />
+                            <Route exact path="/" component={Homepage} />
                             <Route exact path="/contact" component={contactForm} />
-                            <Route exact path="/posts/:postId" component={Post} />
+                            <Route exact path="/posts/:postSlug" component={Post} />
                         </Switch>
                     </div>
-                    <div className="flex-container__sidebar">
-                        <Sidebar />
-                    </div>
+                    {this.props.location.pathname !== '/' ?
+                        <div className="flex-container__sidebar">
+                            <Sidebar />
+                        </div>
+                        : null
+                    }
                 </div>
                 <Footer />
             </div>

@@ -14,6 +14,8 @@ export class Posts extends React.Component {
         fetch(`${API_BASE_URL}/posts`)
             .then(res => res.json())
             .then(data => {
+                data = data.reverse();
+
                 this.setState({
                     posts: data
                 });
@@ -35,11 +37,11 @@ export class Posts extends React.Component {
 
         return (
             posts.map(post => (
-                <section id="post">
+                <section id={post.id}>
                     <h2>{post.title}</h2>
                     <img src={post.image} />
                     <p>{post.body}</p>
-                    <Link to="/posts/:postId"><button>Read more...</button></Link>
+                    <Link to={`/posts/${post.slug}`}><button>Read more...</button></Link>
                 </section>
             ))
         )

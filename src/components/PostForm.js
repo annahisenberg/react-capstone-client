@@ -6,6 +6,7 @@ import { reduxForm, Field, SubmissionError, focus } from 'redux-form';
 import Input from './input';
 import { required, nonEmpty, email } from '../validators';
 import { API_BASE_URL } from '../config';
+import { loadAuthToken } from '../local-storage';
 
 export class PostForm extends React.Component {
     // componentDidMount() {
@@ -13,14 +14,21 @@ export class PostForm extends React.Component {
     // }
 
     onSubmit(values) {
+        console.log(values);
+
+        const token = loadAuthToken();
+
         fetch(`${API_BASE_URL}/posts`, {
             method: 'POST',
             body: JSON.stringify(values),
             headers: {
+                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
             }
         })
             .then(res => {
+                console.log(res);
+
                 if (!res.ok) {
                     if (
                         res.headers.has('content-type') &&
@@ -50,11 +58,11 @@ export class PostForm extends React.Component {
                         })
                     );
                 }
-                return Promise.reject(
-                    new SubmissionError({
-                        _error: 'Error submitting message'
-                    })
-                )
+                // return Promise.reject(
+                //     new SubmissionError({
+                //         _error: 'Error submitting message'
+                //     })
+                // )
             });
     }
 
