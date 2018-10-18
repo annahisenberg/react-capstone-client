@@ -39,14 +39,19 @@ export class TaggedPosts extends React.Component {
         }
 
         return (
-            posts.map(post => (
-                <section id={post.id}>
-                    <h2>{post.title}</h2>
-                    <img src={post.image} alt="blog-post-pic" />
-                    <p>{post.body}</p>
-                    <Link to={`/posts/${post.slug}`}><button>Read more...</button></Link>
-                </section>
-            ))
+            <div>
+                <h2>POSTS FILED UNDER SAME TAG:</h2>
+                {
+                    posts.map(post => (
+                        <section class="tagged" id={post.id}>
+                            <h2>{post.title}</h2>
+                            <img src={post.image} alt="blog-post-pic" />
+                            <p>{post.body}</p>
+                            <Link to={`/posts/${post.slug}`}><button>Read more...</button></Link>
+                        </section>
+                    ))
+                }
+            </div>
         )
     }
 };

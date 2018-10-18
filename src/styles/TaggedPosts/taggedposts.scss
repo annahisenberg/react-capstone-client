@@ -1,9 +1,4 @@
-#posts-h2 {
-    margin-top: 70px;
-    text-transform: uppercase;
-}
-
-#posts-section {
+.tagged {
     width: 350px;
     @include desktop {
         width: 800px;
@@ -16,11 +11,5 @@
         @include desktop {
             width: 800px;
         }
-    }
-    a {
-        text-decoration: none;
-    }
-    button {
-        display: block;
     }
 }

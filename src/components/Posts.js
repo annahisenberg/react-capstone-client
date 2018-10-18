@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { API_BASE_URL } from '../config';
+import TextTruncate from 'react-text-truncate';
 
 export class Posts extends React.Component {
     constructor(props) {
@@ -42,12 +43,16 @@ export class Posts extends React.Component {
                         <section id="posts-section" key={i}>
                             <h2 id="posts-h2">{post.title}</h2>
                             <img className="blog-post-pic" src={post.image} alt="blog-post-pic" />
-                            <p id="paragraph">{post.body}</p>
+                            <TextTruncate
+                                line={7}
+                                truncateText="…"
+                                text={post.body}
+                            />
                             <Link to={`/posts/${post.slug}`}><button>Read more...</button></Link>
                         </section>
                     ))
                 }
-                <p>See more →</p>
+                <p><a href="#">See more →</a></p>
             </div>
         )
     }

@@ -75,11 +75,15 @@ export class Post extends React.Component {
         });
     }
 
+    // tagsList(tags) {
+    //     return tags.map((tag, i) => <li key={i}><Link to={`/tags/${tag}`}>{tag}</Link></li>);
+    // }
+
+
 
     render() {
         const { post, tags, error, editing } = this.state;
-
-        const tagsList = tags.map((tag, i) => (<li key={i}><Link to={`/tags/${tag}`}>{tag}</Link></li>));
+        console.log(tags);
 
         if (error) {
             return <div>{error}</div>;
@@ -100,7 +104,7 @@ export class Post extends React.Component {
                     <div id="flex-container-tags">
                         <h3>Tagged with: </h3>
                         <ul>
-                            {tagsList}
+                            {tags.map((tag, i) => <li key={i}><Link to={`/tags/${tag}`}>{tag}</Link></li>)}
                         </ul>
                     </div>
                     <h2>COMMENTS:</h2>
