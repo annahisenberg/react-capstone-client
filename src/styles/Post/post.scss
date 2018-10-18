@@ -1,0 +1,58 @@
+#post {
+    #edit-delete-container {
+        a {
+            margin: 10px;
+            text-decoration: none;
+        }
+    }
+    h2 {
+        text-transform: uppercase;
+        font-family: $font-stack;
+        color: $dark-gray;
+        font-weight: bold;
+        letter-spacing: 3px;
+        font-size: 19px;
+    }
+    img {
+        width: 350px;
+        @include desktop {
+            width: 700px;
+        }
+    }
+    p {
+        @include paragraph;
+        width: 350px;
+        @include desktop {
+            width: 700px;
+        }
+    }
+    button {
+        @include button;
+    }
+    #flex-container-tags {
+        display: flex;
+    }
+    h3 {
+        text-transform: uppercase;
+        font-family: $font-stack;
+        color: $dark-gray;
+        font-weight: bold;
+        letter-spacing: 3px;
+    }
+    ul {
+        display: flex;
+        list-style-type: none;
+        li {
+            margin: 5px;
+            font-family: $font-stack;
+            a {
+                color: $dark-gray;
+                text-decoration: none;
+                transition: all .1s ease-in-out;
+                &:hover {
+                    color: $blue-green;
+                }
+            }
+        }
+    }
+}

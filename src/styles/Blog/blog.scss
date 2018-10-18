@@ -1,5 +1,5 @@
 .flex-container {
-    display: block;
+    // display: block;
     @include desktop {
         display: flex;
         justify-content: space-around;

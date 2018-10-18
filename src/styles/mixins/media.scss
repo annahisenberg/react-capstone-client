@@ -27,7 +27,6 @@
 
 @mixin paragraph {
     @include font;
-    width: 600px;
     font-size: 15px;
     letter-spacing: 0.5px;
     line-height: 1.8;

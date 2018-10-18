@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { API_BASE_URL } from '../config';
 
-export class Posts extends React.Component {
+export class TaggedPosts extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -11,11 +11,14 @@ export class Posts extends React.Component {
         }
     }
     componentDidMount() {
-        fetch(`${API_BASE_URL}/posts`)
+        const tag = this.props.location.pathname.split('/');
+        const selection = tag[tag.length - 1].replace(' ', '');
+
+
+        fetch(`${API_BASE_URL}/tags/${selection}`)
             .then(res => res.json())
             .then(data => {
-                data = data.reverse();
-
+                console.warn('data', data);
                 this.setState({
                     posts: data
                 });
@@ -36,21 +39,16 @@ export class Posts extends React.Component {
         }
 
         return (
-            <div>
-                {
-                    posts.map((post, i) => (
-                        <section id="posts-section" key={i}>
-                            <h2 id="posts-h2">{post.title}</h2>
-                            <img className="blog-post-pic" src={post.image} alt="blog-post-pic" />
-                            <p id="paragraph">{post.body}</p>
-                            <Link to={`/posts/${post.slug}`}><button>Read more...</button></Link>
-                        </section>
-                    ))
-                }
-                <p>See more →</p>
-            </div>
+            posts.map(post => (
+                <section id={post.id}>
+                    <h2>{post.title}</h2>
+                    <img src={post.image} alt="blog-post-pic" />
+                    <p>{post.body}</p>
+                    <Link to={`/posts/${post.slug}`}><button>Read more...</button></Link>
+                </section>
+            ))
         )
     }
 };
 
-export default Posts;
+export default TaggedPosts;

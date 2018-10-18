@@ -2,6 +2,7 @@
     text-align: center;
     h2 {
         margin-top: 0;
+        font-family: $cursive-font;
     }
 }
 
@@ -15,7 +16,7 @@
         p {
             color: $dark-gray;
             font-size: 40px;
-            font-family: $cursive-font;
+            font-family: $font-stack;
             font-weight: bold;
         }
     }

@@ -13,26 +13,21 @@ import Login from './login';
 import Homepage from './homepage';
 import Post from './Post';
 import contactForm from './contact-form';
+import TaggedPosts from './Tagged-posts';
 import { refreshAuthToken } from '../actions/auth';
 
 
 import {
     Route,
-    Link,
     Switch,
     withRouter
 } from 'react-router-dom';
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-
-library.add(faCoffee);
-
 
 export class Blog extends Component {
-    componentWillMount() {
-        console.log(this.props.location.pathname);
-    }
+    // componentWillMount() {
+    //     console.log(this.props.location.pathname);
+    // }
 
     componentDidUpdate(prevProps) {
         if (!prevProps.loggedIn && this.props.loggedIn) {
@@ -79,9 +74,10 @@ export class Blog extends Component {
                             <Route exact path="/" component={Homepage} />
                             <Route exact path="/contact" component={contactForm} />
                             <Route exact path="/posts/:postSlug" component={Post} />
+                            <Route exact path="/tags/:tag" component={TaggedPosts} />
                         </Switch>
                     </div>
-                    {this.props.location.pathname !== '/' ?
+                    {this.props.location.pathname !== '/' && this.props.location.pathname !== '/about-me-page' ?
                         <div className="flex-container__sidebar">
                             <Sidebar />
                         </div>

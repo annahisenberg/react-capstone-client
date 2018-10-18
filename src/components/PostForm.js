@@ -14,8 +14,6 @@ export class PostForm extends React.Component {
     // }
 
     onSubmit(values) {
-        console.log(values);
-
         const token = loadAuthToken();
 
         fetch(`${API_BASE_URL}/posts`, {
@@ -71,7 +69,7 @@ export class PostForm extends React.Component {
         if (this.props.submitSucceeded) {
             successMessage = (
                 <div className="message message-success">
-                    Message submitted successfully.
+                    Post successfully created.
                 </div>
             );
         }

@@ -1,9 +1,15 @@
-#about-h2 {
-    width: 600px;
-    font-family: $font-stack;
-    color: $dark-gray;
-}
-
-#about-p {
-    @include paragraph;
+#about-me-div {
+    img {
+        width: 350px;
+        @include desktop {
+            width: 700px;
+        }
+    }
+    #about-p {
+        @include paragraph;
+        width: 350px;
+        @include desktop {
+            width: 700px;
+        }
+    }
 }

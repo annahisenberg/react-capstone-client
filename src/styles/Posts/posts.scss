@@ -1,19 +1,23 @@
-#post {
-    h2 {
-        text-transform: uppercase;
-        font-family: $font-stack;
-        color: $dark-gray;
-        font-weight: bold;
-        font-size: 19px;
-        letter-spacing: 3px;
-    }
-    img {
-        width: 600px;
+// .blog-post-pic {
+//     max-width: 800px;
+// }
+#posts-h2 {
+    margin-top: 70px;
+    text-transform: uppercase;
+}
+
+#posts-section {
+    width: 350px;
+    @include desktop {
+        width: 800px;
     }
     p {
         @include paragraph;
     }
-    button {
-        @include button;
+    img {
+        width: 350px;
+        @include desktop {
+            width: 800px;
+        }
     }
 }

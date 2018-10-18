@@ -1,6 +1,10 @@
 header {
     padding: 12% 0;
     text-align: center;
+    margin-top: 85px;
+    @include desktop {
+        margin-top: 0;
+    }
     a {
         text-decoration: none;
         h1 {

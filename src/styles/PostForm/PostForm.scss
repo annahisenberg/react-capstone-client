@@ -1,3 +1,10 @@
 textarea {
     display: block;
 }
+
+.message {
+    color: $blue-green;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-family: $font-stack;
+}

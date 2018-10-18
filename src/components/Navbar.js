@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from 'react-redux';
 
 export class Navbar extends React.Component {
@@ -29,8 +28,8 @@ export class Navbar extends React.Component {
                                 <li><Link to="/login">Login</Link></li>
                             </React.Fragment>)
                     }
-                    <li><Link to="/post-form">Make new post</Link></li>
                     <li><Link to="/posts">All Posts</Link></li>
+                    {this.props.loggedIn ? <li><Link to="/post-form">Make new post</Link></li> : null}
                     <li><Link to="/contact">Contact me</Link></li>
                 </ul>
             </nav>
