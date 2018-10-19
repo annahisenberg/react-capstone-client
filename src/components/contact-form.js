@@ -1,32 +1,19 @@
 import React from 'react';
-// import { connect } from 'react-redux';
-// import { fetchProtectedData } from '../actions/protected-data';
-// import requiresLogin from './requires-login';
 import { reduxForm, Field, SubmissionError, focus } from 'redux-form';
 import Input from './input';
 import { required, nonEmpty, email } from '../validators';
 import { API_BASE_URL } from '../config';
-import { loadAuthToken } from '../local-storage';
 
-export class PostForm extends React.Component {
-    // componentDidMount() {
-    //     this.props.dispatch(fetchProtectedData());
-    // }
-
+export class ContactForm extends React.Component {
     onSubmit(values) {
-        const token = loadAuthToken();
-
-        fetch(`${API_BASE_URL}/posts`, {
+        fetch(`${API_BASE_URL}/messages`, {
             method: 'POST',
             body: JSON.stringify(values),
             headers: {
-                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
             }
         })
             .then(res => {
-                console.log(res);
-
                 if (!res.ok) {
                     if (
                         res.headers.has('content-type') &&
@@ -56,11 +43,11 @@ export class PostForm extends React.Component {
                         })
                     );
                 }
-                // return Promise.reject(
-                //     new SubmissionError({
-                //         _error: 'Error submitting message'
-                //     })
-                // )
+                return Promise.reject(
+                    new SubmissionError({
+                        _error: 'Error submitting message'
+                    })
+                )
             });
     }
 
@@ -69,7 +56,7 @@ export class PostForm extends React.Component {
         if (this.props.submitSucceeded) {
             successMessage = (
                 <div className="message message-success">
-                    Post successfully created.
+                    Message submitted successfully.
                 </div>
             );
         }
@@ -85,57 +72,42 @@ export class PostForm extends React.Component {
             <form
                 onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
             >
-                <h2>MAKE NEW BLOG POST</h2>
+                <h2>Contact Me</h2>
                 {successMessage}
                 {errorMessage}
                 <Field
-                    name="title"
+                    name="name"
                     type="text"
                     component={Input}
-                    label="Title"
+                    label="Name"
                     validate={[required, nonEmpty]}
                 />
                 <Field
-                    name="body"
+                    name="email"
+                    type="email"
+                    component={Input}
+                    label="Email address"
+                    validate={[required, nonEmpty, email]}
+                />
+                <Field
+                    name="message"
                     element="textarea"
                     component={Input}
-                    label="Body"
-                    validate={[required, nonEmpty]}
-                />
-                <Field
-                    name="image"
-                    type="text"
-                    component={Input}
-                    label="Image URL"
-                    validate={[required, nonEmpty]}
-                />
-                <Field
-                    name="tags"
-                    type="text"
-                    component={Input}
-                    label="Tags"
+                    label="Message"
                     validate={[required, nonEmpty]}
                 />
                 <button
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>
-                    Make Post
+                    Send message
                 </button>
             </form>
-        )
+        );
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         protectedData: state.protectedData.data
-//     };
-// };
-
-// export default requiresLogin()(connect(mapStateToProps)(PostForm));
-
 export default reduxForm({
-    form: 'post',
+    form: 'contact',
     onSubmitFail: (errors, dispatch) =>
-        dispatch(focus('post', Object.keys(errors)[0]))
-})(PostForm);
+        dispatch(focus('contact', Object.keys(errors)[0]))
+})(ContactForm);

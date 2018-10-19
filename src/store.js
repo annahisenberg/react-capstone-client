@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
 import { loadAuthToken } from './local-storage';
@@ -12,7 +12,13 @@ const store = createStore(
         auth: authReducer,
         protectedData: protectedDataReducer
     }),
-    applyMiddleware(thunk)
+
+    compose( // Compose is for DEVTOOLS redux extension
+        applyMiddleware(thunk),
+        // REDUX PLUGIN DEVTOOLS // REMOVE in PROD
+        window.__REDUX_DEVTOOLS_EXTENSION__ &&
+        window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
 )
 
 // Hydrate the authToken from localStorage if it exists

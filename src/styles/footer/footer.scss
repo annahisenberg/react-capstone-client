@@ -1,0 +1,11 @@
+footer {
+    text-align: center;
+    margin-top: 50px;
+    @include font;
+    background: $dark-gray;
+    color: white;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    bottom: 0;
+}

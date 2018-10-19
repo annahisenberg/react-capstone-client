@@ -1,0 +1,26 @@
+#posts-h2 {
+    margin-top: 70px;
+    text-transform: uppercase;
+}
+
+#posts-section {
+    width: 350px;
+    @include desktop {
+        width: 800px;
+    }
+    p {
+        @include paragraph;
+    }
+    img {
+        width: 350px;
+        @include desktop {
+            width: 800px;
+        }
+    }
+    a {
+        text-decoration: none;
+    }
+    button {
+        display: block;
+    }
+}

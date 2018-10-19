@@ -1,7 +1,16 @@
 @import './variables';
 @import './mixins/media';
+@import './icons/icons';
 // Components
-@import './navigation/Navbar';
 @import './header/header';
 @import './Blog/blog';
 @import './PostForm/PostForm';
+@import './navigation/Navbar';
+@import './Post/post.scss';
+@import './contact/contact-form.scss';
+@import './sidebar/sidebar.scss';
+@import './about-me-page/about-me-page.scss';
+@import './footer/footer.scss';
+@import './homepage/homepage.scss';
+@import './Posts/Posts.scss';
+@import './TaggedPosts/taggedposts.scss';

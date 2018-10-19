@@ -10,19 +10,25 @@ import AboutMePage from './About-me-page';
 import PostForm from './PostForm';
 import RegistrationPage from './registration-page';
 import Login from './login';
+import Homepage from './homepage';
 import Post from './Post';
+import contactForm from './contact-form';
+import TaggedPosts from './Tagged-posts';
 import { refreshAuthToken } from '../actions/auth';
 
 
 import {
     Route,
-    Link,
     Switch,
     withRouter
 } from 'react-router-dom';
 
 
 export class Blog extends Component {
+    // componentWillMount() {
+    //     console.log(this.props.location.pathname);
+    // }
+
     componentDidUpdate(prevProps) {
         if (!prevProps.loggedIn && this.props.loggedIn) {
             // When we are logged in, refresh the auth token periodically
@@ -64,13 +70,19 @@ export class Blog extends Component {
                             <Route exact path="/post-form" component={PostForm} />
                             <Route exact path="/registration-page" component={RegistrationPage} />
                             <Route exact path="/login" component={Login} />
-                            <Route exact path="/" component={Posts} />
-                            <Route exact path="/:postId" component={Post} />
+                            <Route exact path="/posts" component={Posts} />
+                            <Route exact path="/" component={Homepage} />
+                            <Route exact path="/contact" component={contactForm} />
+                            <Route exact path="/posts/post/:postSlug" component={Post} />
+                            <Route exact path="/tags/:tag" component={TaggedPosts} />
                         </Switch>
                     </div>
-                    <div className="flex-container__sidebar">
-                        <Sidebar />
-                    </div>
+                    {this.props.location.pathname !== '/' && this.props.location.pathname !== '/about-me-page' ?
+                        <div className="flex-container__sidebar">
+                            <Sidebar />
+                        </div>
+                        : null
+                    }
                 </div>
                 <Footer />
             </div>

@@ -1,26 +1,74 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { API_BASE_URL } from '../config';
+import TextTruncate from 'react-text-truncate';
 
-const Posts = () => {
-    return (
-        <div>
-            <section>
-                <h2>How to Organize Your Pantry</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi repellat repellendus fugiat dolores consectetur eveniet earum, esse placeat culpa voluptatem asperiores porro, ipsam rem omnis nam nisi, rerum minima dolore aspernatur velit. Sapiente esse dolore explicabo? Facilis quibusdam repellat possimus modi error quidem ad rem labore aliquam, amet voluptas quisquam quo magnam distinctio suscipit nostrum enim repellendus laudantium quas molestias optio reprehenderit numquam? Voluptate vel praesentium blanditiis? Quis maiores dolorum recusandae natus expedita quae. Porro nulla sequi, saepe perspiciatis nemo necessitatibus qui pariatur exercitationem autem tenetur accusantium maiores enim repellendus, corrupti quod vitae. Dolores ratione illo porro. Voluptates, totam quidem.</p>
-                <Link to="/:postId"><button>Read more...</button></Link>
-            </section>
-            <section>
-                <h2>The Prettiest Tile Backsplash</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi repellat repellendus fugiat dolores consectetur eveniet earum, esse placeat culpa voluptatem asperiores porro, ipsam rem omnis nam nisi, rerum minima dolore aspernatur velit. Sapiente esse dolore explicabo? Facilis quibusdam repellat possimus modi error quidem ad rem labore aliquam, amet voluptas quisquam quo magnam distinctio suscipit nostrum enim repellendus laudantium quas molestias optio reprehenderit numquam? Voluptate vel praesentium blanditiis? Quis maiores dolorum recusandae natus expedita quae. Porro nulla sequi, saepe perspiciatis nemo necessitatibus qui pariatur exercitationem autem tenetur accusantium maiores enim repellendus, corrupti quod vitae. Dolores ratione illo porro. Voluptates, totam quidem.</p>
-                <Link to="/:postId"><button>Read more...</button></Link>
-            </section>
-            <section>
-                <h2>Best books of 2018</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi repellat repellendus fugiat dolores consectetur eveniet earum, esse placeat culpa voluptatem asperiores porro, ipsam rem omnis nam nisi, rerum minima dolore aspernatur velit. Sapiente esse dolore explicabo? Facilis quibusdam repellat possimus modi error quidem ad rem labore aliquam, amet voluptas quisquam quo magnam distinctio suscipit nostrum enim repellendus laudantium quas molestias optio reprehenderit numquam? Voluptate vel praesentium blanditiis? Quis maiores dolorum recusandae natus expedita quae. Porro nulla sequi, saepe perspiciatis nemo necessitatibus qui pariatur exercitationem autem tenetur accusantium maiores enim repellendus, corrupti quod vitae. Dolores ratione illo porro. Voluptates, totam quidem.</p>
-                <Link to="/:postId"><button>Read more...</button></Link>
-            </section>
-        </div>
-    )
+export class Posts extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            posts: [],
+            error: null
+        }
+        this.initialCount = 3;
+        this.counter = this.initialCount;
+
+        this.loadMorePosts = this.loadMorePosts.bind(this);
+    }
+
+    fetchPosts(increaseLimit) {
+        fetch(`${API_BASE_URL}/posts/${increaseLimit}`)
+            .then(res => res.json())
+            .then(data => {
+                this.setState({
+                    posts: data
+                });
+            },
+                (error) => {
+                    this.setState({
+                        error
+                    });
+                }
+            )
+    }
+
+    componentDidMount() {
+        this.fetchPosts(this.initialCount)
+    }
+
+
+    loadMorePosts() {
+        this.counter += 3;
+        this.fetchPosts(this.counter);
+    }
+
+    render() {
+        const { posts, error } = this.state;
+
+        if (error) {
+            return <div>{error.message}</div>;
+        }
+
+        return (
+            <div>
+                {
+                    posts.map((post, i) => (
+                        <section id="posts-section" key={i}>
+                            <h2 id="posts-h2">{post.title}</h2>
+                            <img className="blog-post-pic" src={post.image} alt="blog-post-pic" />
+                            <TextTruncate
+                                line={7}
+                                truncateText="…"
+                                text={post.body}
+                            />
+                            <Link to={`/posts/post/${post.slug}`}><button>Read more...</button></Link>
+                        </section>
+                    ))
+                }
+                <button onClick={this.loadMorePosts}>See more →</button>
+            </div>
+        )
+    }
 };
 
 export default Posts;

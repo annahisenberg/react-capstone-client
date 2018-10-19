@@ -2,32 +2,35 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
+import { connect } from 'react-redux';
 
 export class Navbar extends React.Component {
     logOut() {
-        this.props.dispatchEvent(clearAuth());
         clearAuthToken();
+        this.props.dispatch(clearAuth());
+    }
+
+    showControls() {
+
     }
 
     render() {
-        //Only render the log out button if we are logged in
-        let logOutButton;
-        if (this.props.loggedIn) {
-            logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
-            );
-        }
         return (
             <nav>
                 <ul>
-                    <li>Lifestyle</li>
                     <li><Link to="/about-me-page">About Me</Link></li>
-                    <li><Link to="/registration-page">Sign up</Link></li>
-                    <li><Link to="/login">Login</Link></li>
-                    <li><a href="https://www.instagram.com/">Instagram</a></li>
-                    <li><Link to="/post-form">Make new post</Link></li>
-                    <li><Link to="/">All Posts</Link></li>
-                    {logOutButton}
+                    {
+                        this.props.loggedIn ?
+                            (<li><a onClick={() => this.logOut()}>Log out</a></li>)
+                            :
+                            (<React.Fragment>
+                                <li><Link to="/registration-page">Sign up</Link></li>
+                                <li><Link to="/login">Login</Link></li>
+                            </React.Fragment>)
+                    }
+                    <li><Link to="/posts">All Posts</Link></li>
+                    {this.props.loggedIn ? <li><Link to="/post-form">Make new post</Link></li> : null}
+                    <li><Link to="/contact">Contact me</Link></li>
                 </ul>
             </nav>
         )
@@ -38,4 +41,5 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });
 
-export default Navbar;
+export default connect(mapStateToProps)(Navbar);
+

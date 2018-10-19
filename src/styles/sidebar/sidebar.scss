@@ -1,0 +1,44 @@
+#sidebar-img {
+    width: 90%;
+}
+
+#social-media {
+    ul {
+        display: flex;
+    }
+    li {
+        list-style-type: none;
+        margin: 5px;
+    }
+    a {
+        text-decoration: none;
+        color: $blue-green;
+        transition: all .2s ease-in-out;
+        i {
+            font-size: 30px;
+        }
+        &:hover {
+            color: $hover-green;
+        }
+    }
+    h3 {
+        @include font;
+        text-transform: uppercase;
+    }
+}
+
+#sidebar {
+    h3 {
+        a {
+            text-decoration: none;
+            @include font;
+        }
+    }
+    p {
+        color: $dark-gray;
+        font-family: $font-stack;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        line-height: 1.8;
+    }
+}
