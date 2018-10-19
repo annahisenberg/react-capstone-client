@@ -47,7 +47,7 @@ export class TaggedPosts extends React.Component {
                             <h2>{post.title}</h2>
                             <img src={post.image} alt="blog-post-pic" />
                             <p>{post.body}</p>
-                            <Link to={`/posts/${post.slug}`}><button>Read more...</button></Link>
+                            <Link to={`/posts/post/${post.slug}`}><button>Read more...</button></Link>
                         </section>
                     ))
                 }

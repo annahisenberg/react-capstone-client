@@ -16,7 +16,7 @@ export class EditPostForm extends React.Component {
     onSubmit(values) {
         const token = loadAuthToken();
 
-        return fetch(`${API_BASE_URL}/posts/${this.props.post.slug}`, {
+        return fetch(`${API_BASE_URL}/posts/post/${this.props.post.slug}`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
@@ -34,8 +34,18 @@ export class EditPostForm extends React.Component {
 
 
     render() {
+        let successMessage;
+        if (this.props.submitSucceeded) {
+            successMessage = (
+                <div className="message message-success">
+                    Post successfully updated.
+                </div>
+            );
+        }
+
         return (
             <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+                {successMessage}
                 <div>
                     <label>Title</label>
                     <div>

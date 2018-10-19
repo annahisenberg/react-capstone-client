@@ -21,10 +21,10 @@ export class Post extends React.Component {
     handleDelete(e) {
         e.preventDefault();
         const token = loadAuthToken();
+        const slug = this.props.location.pathname.split('/')[3];
 
-        const slug = this.props.location.pathname.split('/')[2];
 
-        return fetch(`${API_BASE_URL}/posts/${slug}`, {
+        return fetch(`${API_BASE_URL}/posts/post/${slug}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -47,10 +47,10 @@ export class Post extends React.Component {
 
     componentDidMount() {
         this.loadDisqus();
+        const slug = this.props.location.pathname.split('/')[3];
 
-        const slug = this.props.location.pathname.split('/')[2];
 
-        return fetch(`${API_BASE_URL}/posts/${slug}`)
+        return fetch(`${API_BASE_URL}/posts/post/${slug}`)
             .then(res => {
                 if (res.ok) return res.json();
                 throw new Error(res.error);
@@ -75,15 +75,12 @@ export class Post extends React.Component {
         });
     }
 
-    // tagsList(tags) {
-    //     return tags.map((tag, i) => <li key={i}><Link to={`/tags/${tag}`}>{tag}</Link></li>);
-    // }
-
 
 
     render() {
         const { post, tags, error, editing } = this.state;
         console.log(tags);
+
 
         if (error) {
             return <div>{error}</div>;

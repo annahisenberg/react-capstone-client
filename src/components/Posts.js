@@ -10,13 +10,16 @@ export class Posts extends React.Component {
             posts: [],
             error: null
         }
+        this.initialCount = 3;
+        this.counter = this.initialCount;
+
+        this.loadMorePosts = this.loadMorePosts.bind(this);
     }
-    componentDidMount() {
-        fetch(`${API_BASE_URL}/posts`)
+
+    fetchPosts(increaseLimit) {
+        fetch(`${API_BASE_URL}/posts/${increaseLimit}`)
             .then(res => res.json())
             .then(data => {
-                data = data.reverse();
-
                 this.setState({
                     posts: data
                 });
@@ -27,6 +30,16 @@ export class Posts extends React.Component {
                     });
                 }
             )
+    }
+
+    componentDidMount() {
+        this.fetchPosts(this.initialCount)
+    }
+
+
+    loadMorePosts() {
+        this.counter += 3;
+        this.fetchPosts(this.counter);
     }
 
     render() {
@@ -48,11 +61,11 @@ export class Posts extends React.Component {
                                 truncateText="…"
                                 text={post.body}
                             />
-                            <Link to={`/posts/${post.slug}`}><button>Read more...</button></Link>
+                            <Link to={`/posts/post/${post.slug}`}><button>Read more...</button></Link>
                         </section>
                     ))
                 }
-                <p><a href="#">See more →</a></p>
+                <button onClick={this.loadMorePosts}>See more →</button>
             </div>
         )
     }

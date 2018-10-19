@@ -73,7 +73,7 @@ export class Blog extends Component {
                             <Route exact path="/posts" component={Posts} />
                             <Route exact path="/" component={Homepage} />
                             <Route exact path="/contact" component={contactForm} />
-                            <Route exact path="/posts/:postSlug" component={Post} />
+                            <Route exact path="/posts/post/:postSlug" component={Post} />
                             <Route exact path="/tags/:tag" component={TaggedPosts} />
                         </Switch>
                     </div>
