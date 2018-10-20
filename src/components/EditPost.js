@@ -43,6 +43,7 @@ export class EditPostForm extends React.Component {
             );
         }
 
+        //
         return (
             <form onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
                 {successMessage}
