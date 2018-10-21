@@ -4,17 +4,19 @@
 }
 
 #posts-section {
-    width: 350px;
     @include desktop {
         width: 800px;
     }
-    p {
+    span {
         @include paragraph;
+        @include desktop {
+            width: 80%;
+        }
     }
     img {
-        width: 350px;
+        width: 100%;
         @include desktop {
-            width: 800px;
+            width: 80%;
         }
     }
     a {

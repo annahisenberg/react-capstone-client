@@ -9,12 +9,16 @@
 #home-flex_container {
     @include desktop {
         display: flex;
+        justify-content: center;
     }
     .flex-box {
         border: 1px solid $blue-green;
         height: 300px;
-        width: 300px;
-        margin: 20px;
+        width: 100%;
+        @include desktop {
+            width: 300px;
+            margin: 20px;
+        }
         p {
             color: $dark-gray;
             font-size: 40px;

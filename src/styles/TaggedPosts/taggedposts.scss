@@ -1,5 +1,4 @@
 .tagged {
-    width: 350px;
     @include desktop {
         width: 800px;
     }
@@ -7,7 +6,7 @@
         @include paragraph;
     }
     img {
-        width: 350px;
+        width: 100%;
         @include desktop {
             width: 800px;
         }
