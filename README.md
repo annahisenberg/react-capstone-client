@@ -17,7 +17,7 @@ This application is a lifestyle blog which is dedicated to the author's everyday
 React.js, Redux, Javascript, Mocha, Chai, Disqus, SASS, HTML, Node.js, Express.js, MongoDb, Mongoose, JWT, Passport, REST APIs, Travis-CI, Heroku, Git
 
 ## Future Enhancements:
-Add a search bar for users to search for certain topics.
-Add a text editor (wysiwyg) to the form for creating blog posts. 
-Add ability for users to share specific posts they like via social media. 
-Add a popular posts section.
+- Add a search bar for users to search for certain topics.
+- Add a text editor (wysiwyg) to the form for creating blog posts. 
+- Add ability for users to share specific posts they like via social media. 
+- Add a popular posts section.
