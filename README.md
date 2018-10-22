@@ -5,14 +5,12 @@
 ## Summary:
 This application is a lifestyle blog which is dedicated to the author's everyday life, interests, and activities. The blog author can create blog posts using the "Make New Post" form, which was created with Redux Form. Users can read all blog posts, comment on blog posts using the Disqus comments, contact the author by using the contact form (also made with Redux Form) which will then be sent to the author's email, and they can also find blog posts with a specific tag. 
 
-
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 ## Screenshots:
-1. ![Header](https://github.com/annahisenberg/react-capstone-client/blob/master/Screen%20Shot%202018-10-22%20at%2012.00.37%20PM.png)
-2. ![Post section and About Me section](https://github.com/annahisenberg/react-capstone-client/blob/master/Screen%20Shot%202018-10-22%20at%2012.00.58%20PM.png)
-3. ![Tags and Comments sections](https://github.com/annahisenberg/react-capstone-client/blob/master/Screen%20Shot%202018-10-22%20at%2012.01.19%20PM.png)
-4. ![Contact Form](https://github.com/annahisenberg/react-capstone-client/blob/master/Screen%20Shot%202018-10-22%20at%2012.01.37%20PM.png)
-5. ![Registration Form](https://github.com/annahisenberg/react-capstone-client/blob/master/Screen%20Shot%202018-10-22%20at%2012.01.57%20PM.png)
+![Header](https://github.com/annahisenberg/react-capstone-client/blob/master/Screen%20Shot%202018-10-22%20at%2012.00.37%20PM.png)
+![Post section and About Me section](https://github.com/annahisenberg/react-capstone-client/blob/master/Screen%20Shot%202018-10-22%20at%2012.00.58%20PM.png)
+![Tags and Comments sections](https://github.com/annahisenberg/react-capstone-client/blob/master/Screen%20Shot%202018-10-22%20at%2012.01.19%20PM.png)
+![Contact Form](https://github.com/annahisenberg/react-capstone-client/blob/master/Screen%20Shot%202018-10-22%20at%2012.01.37%20PM.png)
+![Registration Form](https://github.com/annahisenberg/react-capstone-client/blob/master/Screen%20Shot%202018-10-22%20at%2012.01.57%20PM.png)
       
 
 ## Technologies used:
