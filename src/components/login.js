@@ -67,6 +67,8 @@ export class Login extends React.Component {
                     Log in
                 </button>
                 <Link to="/registration-page">Sign Up</Link>
+                <p>Demo username: demoUser</p>
+                <p>Demo password: demoPassword</p>
             </form>
         );
     }
