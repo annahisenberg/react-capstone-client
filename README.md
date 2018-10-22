@@ -3,7 +3,11 @@
 [Click here](https://aqueous-springs-80005.herokuapp.com/) to view the live app. [Click here](https://github.com/annahisenberg/react-capstone-api) to see server-side code. 
 
 You can log in with these demo account credentials: 
+
+
 Demo Username: demoUser
+
+
 Demo Password: demoPassword
 
 ## Summary:
