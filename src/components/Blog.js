@@ -25,10 +25,6 @@ import {
 
 
 export class Blog extends Component {
-    // componentWillMount() {
-    //     console.log(this.props.location.pathname);
-    // }
-
     componentDidUpdate(prevProps) {
         if (!prevProps.loggedIn && this.props.loggedIn) {
             // When we are logged in, refresh the auth token periodically

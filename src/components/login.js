@@ -16,11 +16,8 @@ export class Login extends React.Component {
     }
     onSubmit(values) {
         this.props.dispatch(login(values.username, values.password));
-        console.log('test', this.props.authToken);
 
         if (this.props.authToken) {
-            console.log(this.props.authToken, 'blah');
-
             this.setState({
                 isLoggedIn: true
             })
@@ -29,7 +26,6 @@ export class Login extends React.Component {
 
     render() {
         let message;
-        console.log(this.state.isLoggedIn);
 
         if (this.state.isLoggedIn === true) {
             message = <div>You are currently logged in.</div>

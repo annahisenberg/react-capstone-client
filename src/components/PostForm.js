@@ -25,7 +25,6 @@ export class PostForm extends React.Component {
             }
         })
             .then(res => {
-                console.log(res);
 
                 if (!res.ok) {
                     if (

@@ -65,7 +65,7 @@ export class Posts extends React.Component {
                         </section>
                     ))
                 }
-                <button onClick={this.loadMorePosts}>See more →</button>
+                <button onClick={this.loadMorePosts}>See more posts →</button>
             </div>
         )
     }

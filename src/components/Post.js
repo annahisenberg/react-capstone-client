@@ -79,7 +79,6 @@ export class Post extends React.Component {
 
     render() {
         const { post, tags, error, editing } = this.state;
-        console.log(tags);
 
 
         if (error) {

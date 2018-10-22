@@ -32,7 +32,6 @@ export class ContactForm extends React.Component {
                 }
                 return;
             })
-            .then(() => console.log('Submitted with values', values))
             .catch(err => {
                 const { reason, message, location } = err;
                 if (reason === 'ValidationError') {
