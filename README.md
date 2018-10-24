@@ -2,6 +2,14 @@
 
 [Click here](https://aqueous-springs-80005.herokuapp.com/) to view the live app. [Click here](https://github.com/annahisenberg/react-capstone-api) to see server-side code. 
 
+You can log in with these demo account credentials: 
+
+
+**Demo Username:** demoUser
+
+
+**Demo Password:** demoPassword
+
 ## Summary:
 This application is a lifestyle blog which is dedicated to the author's everyday life, interests, and activities. The blog author can create blog posts using the "Make New Post" form, which was created with Redux Form. Users can read all blog posts, comment on blog posts using the Disqus comments, contact the author by using the contact form (also made with Redux Form) which will then be sent to the author's email, and they can also find blog posts with a specific tag. 
 
