@@ -17,9 +17,15 @@ export class Posts extends React.Component {
     }
 
     fetchPosts(increaseLimit) {
-        fetch(`${API_BASE_URL}/posts/${increaseLimit}`)
-            .then(res => res.json())
+        return fetch(`${API_BASE_URL}/posts/${increaseLimit}`)
+            .then(res => {
+                console.warn('API CALL', `${API_BASE_URL}/posts/${increaseLimit}`);
+
+                return res.json()
+            })
             .then(data => {
+                console.log('data', data);
+
                 this.setState({
                     posts: data
                 });

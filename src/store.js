@@ -13,12 +13,12 @@ const store = createStore(
         protectedData: protectedDataReducer
     }),
 
-    compose( // Compose is for DEVTOOLS redux extension
-        applyMiddleware(thunk),
-        // REDUX PLUGIN DEVTOOLS // REMOVE in PROD
-        window.__REDUX_DEVTOOLS_EXTENSION__ &&
-        window.__REDUX_DEVTOOLS_EXTENSION__()
-    )
+    // compose( // Compose is for DEVTOOLS redux extension
+    //     applyMiddleware(thunk),
+    //     // REDUX PLUGIN DEVTOOLS // REMOVE in PROD
+    //     window.__REDUX_DEVTOOLS_EXTENSION__ &&
+    //     window.__REDUX_DEVTOOLS_EXTENSION__()
+    // )
 )
 
 // Hydrate the authToken from localStorage if it exists
