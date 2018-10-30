@@ -14,6 +14,7 @@ import Homepage from './homepage';
 import Post from './Post';
 import contactForm from './contact-form';
 import TaggedPosts from './Tagged-posts';
+import NoMatch from './NoMatch';
 import { refreshAuthToken } from '../actions/auth';
 
 
@@ -71,6 +72,7 @@ export class Blog extends Component {
                             <Route exact path="/contact" component={contactForm} />
                             <Route exact path="/posts/post/:postSlug" component={Post} />
                             <Route exact path="/tags/:tag" component={TaggedPosts} />
+                            <Route component={NoMatch} />
                         </Switch>
                     </div>
                     {this.props.location.pathname !== '/' && this.props.location.pathname !== '/about-me-page' ?

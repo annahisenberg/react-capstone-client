@@ -1,11 +1,12 @@
 #about-me-div {
     img {
         width: 80%;
+        margin-top: 100px;
         @include desktop {
             width: 700px;
         }
     }
-    #about-p {
+    p {
         @include paragraph;
         @include desktop {
             width: 700px;

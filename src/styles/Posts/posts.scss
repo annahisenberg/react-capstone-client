@@ -26,3 +26,31 @@
         display: block;
     }
 }
+
+#loading-section {
+    p {
+        font-family: $font-stack;
+        color: $blue-green;
+        font-size: 25px;
+    }
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid $blue-green;
+    /* Blue */
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

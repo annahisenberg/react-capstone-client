@@ -1,64 +1,47 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { API_BASE_URL } from '../config';
 import TextTruncate from 'react-text-truncate';
+import { fetchPosts } from '../actions/fetchPosts';
+import { connect } from 'react-redux';
 
 export class Posts extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            posts: [],
-            error: null
+            limit: 3
         }
-        this.initialCount = 3;
-        this.counter = this.initialCount;
-
-        this.loadMorePosts = this.loadMorePosts.bind(this);
     }
-
-    fetchPosts(increaseLimit) {
-        return fetch(`${API_BASE_URL}/posts/${increaseLimit}`)
-            .then(res => {
-                console.warn('API CALL', `${API_BASE_URL}/posts/${increaseLimit}`);
-
-                return res.json()
-            })
-            .then(data => {
-                console.log('data', data);
-
-                this.setState({
-                    posts: data
-                });
-            },
-                (error) => {
-                    this.setState({
-                        error
-                    });
-                }
-            )
-    }
-
     componentDidMount() {
-        this.fetchPosts(this.initialCount)
+        this.props.dispatch(fetchPosts(this.state.limit));
+        this.setState({
+            limit: this.state.limit + 3
+        })
     }
 
-
-    loadMorePosts() {
-        this.counter += 3;
-        this.fetchPosts(this.counter);
+    seeMorePosts(e) {
+        e.preventDefault();
+        this.props.dispatch(fetchPosts(this.state.limit))
+        this.setState({
+            limit: this.state.limit + 3
+        })
     }
 
     render() {
-        const { posts, error } = this.state;
-
-        if (error) {
-            return <div>{error.message}</div>;
+        if (this.props.loading) {
+            return (
+                <div id="loading-section">
+                    <p>Loading posts...</p>
+                    <div className="loader"></div>
+                </div>
+            )
+        } else if (this.props.error) {
+            return <div>Error! {this.props.error}</div>
         }
 
         return (
             <div>
                 {
-                    posts.map((post, i) => (
+                    this.props.posts.posts.map((post, i) => (
                         <section id="posts-section" key={i}>
                             <h2 id="posts-h2">{post.title}</h2>
                             <img className="blog-post-pic" src={post.image} alt="blog-post-pic" />
@@ -71,10 +54,16 @@ export class Posts extends React.Component {
                         </section>
                     ))
                 }
-                <button onClick={this.loadMorePosts}>See more posts →</button>
+                <button onClick={(e) => this.seeMorePosts(e)}>See more posts →</button>
             </div>
         )
     }
 };
 
-export default Posts;
+export const mapStateToProps = state => ({
+    posts: state.postData,
+    loading: state.postData.loading,
+    error: state.postData.error
+});
+
+export default connect(mapStateToProps)(Posts);
