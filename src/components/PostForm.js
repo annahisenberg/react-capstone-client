@@ -1,7 +1,4 @@
 import React from 'react';
-// import { connect } from 'react-redux';
-// import { fetchProtectedData } from '../actions/protected-data';
-// import requiresLogin from './requires-login';
 import { reduxForm, Field, SubmissionError, focus } from 'redux-form';
 import Input from './input';
 import { required, nonEmpty, email } from '../validators';
@@ -9,10 +6,6 @@ import { API_BASE_URL } from '../config';
 import { loadAuthToken } from '../local-storage';
 
 export class PostForm extends React.Component {
-    // componentDidMount() {
-    //     this.props.dispatch(fetchProtectedData());
-    // }
-
     onSubmit(values) {
         const token = loadAuthToken();
 
@@ -125,13 +118,6 @@ export class PostForm extends React.Component {
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         protectedData: state.protectedData.data
-//     };
-// };
-
-// export default requiresLogin()(connect(mapStateToProps)(PostForm));
 
 export default reduxForm({
     form: 'post',
