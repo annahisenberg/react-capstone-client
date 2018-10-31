@@ -2,7 +2,13 @@
     #edit-delete-container {
         a {
             margin: 10px;
+            font-family: $font-stack;
             text-decoration: none;
+            color: red;
+            text-transform: uppercase;
+            &:hover {
+                color: darkred;
+            }
         }
     }
     h2 {

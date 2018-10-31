@@ -79,7 +79,7 @@ export class Login extends React.Component {
                 <button onClick={this.login} disabled={this.props.pristine || this.props.submitting}>
                     Log in
                 </button>
-                <Link to="/registration-page">Sign Up</Link>
+                <Link className="link" to="/registration-page">Sign Up</Link>
                 <p>Demo username: demoUser</p>
                 <p>Demo password: demoPassword</p>
             </form>

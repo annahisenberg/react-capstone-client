@@ -67,7 +67,7 @@ export class Blog extends Component {
                             <Route exact path="/post-form" component={PostForm} />
                             <Route exact path="/registration-page" component={RegistrationPage} />
                             <Route exact path="/login" component={Login} />
-                            <Route path="/posts" component={Posts} />
+                            <Route exact path="/posts" component={Posts} />
                             <Route exact path="/" component={Homepage} />
                             <Route exact path="/contact" component={contactForm} />
                             <Route exact path="/posts/post/:postSlug" component={Post} />

@@ -1,0 +1,7 @@
+.link {
+    @include link;
+    &:hover {
+        background: $blue-green;
+        color: white;
+    }
+}

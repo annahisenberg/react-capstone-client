@@ -17,6 +17,7 @@
 
 @mixin button {
     background: $blue-green;
+    border: 1px solid $blue-green;
     border-color: $blue-green;
     color: white;
     font-size: 13px;
@@ -36,4 +37,12 @@
     font-size: 15px;
     letter-spacing: 0.5px;
     line-height: 1.8;
+}
+
+@mixin link {
+    text-decoration: none;
+    color: $blue-green;
+    margin-left: 10px;
+    border: 1px solid $blue-green;
+    padding: 15px 40px;
 }
