@@ -11,8 +11,10 @@ export class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoggedIn: false
+            isLoggedIn: false,
+            attempted: false
         }
+        this.login = this.login.bind(this)
     }
     onSubmit(values) {
         this.props.dispatch(login(values.username, values.password));
@@ -24,12 +26,23 @@ export class Login extends React.Component {
         }
     }
 
+    login() {
+        this.setState({
+            attempted: true
+        })
+    }
+
     render() {
         let message;
+        console.log(this.state.isLoggedIn);
+        console.warn(this.props.authToken.authToken, this.state.attempted);
 
-        if (this.state.isLoggedIn === true) {
-            message = <div>You are currently logged in.</div>
+        if (this.props.authToken.authToken) {
+            message = <h3>You are currently logged in.</h3>
+        } else if (!this.props.authToken.authToken && this.state.attempted) {
+            message = (<h3>Please try again</h3>)
         }
+
         let error;
         if (this.props.error) {
             error = (
@@ -63,7 +76,7 @@ export class Login extends React.Component {
                     id="password"
                     validate={[required, nonEmpty]}
                 />
-                <button disabled={this.props.pristine || this.props.submitting}>
+                <button onClick={this.login} disabled={this.props.pristine || this.props.submitting}>
                     Log in
                 </button>
                 <Link to="/registration-page">Sign Up</Link>
