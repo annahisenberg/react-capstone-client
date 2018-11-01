@@ -38,7 +38,7 @@ export class Login extends React.Component {
         console.warn(this.props.authToken.authToken, this.state.attempted);
 
         if (this.props.authToken.authToken) {
-            message = <h3>You are currently logged in.</h3>
+            message = <h3>You are now logged in.</h3>
         } else if (!this.props.authToken.authToken && this.state.attempted) {
             message = (<h3>Please try again</h3>)
         }
