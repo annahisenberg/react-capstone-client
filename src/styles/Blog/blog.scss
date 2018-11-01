@@ -3,6 +3,8 @@ body {
 }
 
 .flex-container {
+    margin-left: 20px;
+    margin-right: 20px;
     @include desktop {
         display: flex;
         justify-content: space-around;
