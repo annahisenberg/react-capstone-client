@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { ReactComponent as YourSvg } from '../assets/logo/LivingWithAnnah.svg';
 const Header = () => {
     return (
         <header>
+
             <Link to="/">
-                <h1>Annah Isenberg</h1>
-                <h2>Every Cook and Cranny</h2>
+                <YourSvg className="logo" />
+
             </Link>
             <hr />
         </header>

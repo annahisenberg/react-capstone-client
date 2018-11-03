@@ -1,18 +1,21 @@
 nav {
     font-family: $font-stack;
-    background-color: $light-pink;
+    background-color: #fee6b6;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 10;
+
     ul {
         list-style: none;
+
         @include desktop {
             display: flex;
             justify-content: space-around;
         }
     }
+
     li {
         a {
             text-decoration: none;
