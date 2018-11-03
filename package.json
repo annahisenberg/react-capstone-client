@@ -46,4 +46,8 @@
         "not ie <= 11",
         "not op_mini all"
     ]
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Update react to 2.0
