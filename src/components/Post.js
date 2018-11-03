@@ -5,6 +5,7 @@ import { loadAuthToken } from '../local-storage';
 import { connect } from 'react-redux';
 import Input from './input';
 import EditPostForm from './EditPost';
+import { Helmet } from 'react-helmet';
 
 export class Post extends React.Component {
     constructor(props) {
@@ -88,6 +89,9 @@ export class Post extends React.Component {
         if (!this.state.editing) {
             return (
                 <section id="post">
+                    <Helmet>
+                        <meta name="description" content={'Single POST '} />
+                    </Helmet>
                     {
                         this.props.loggedIn ?
                             (<div id="edit-delete-container"><a href="#" onClick={() => this.setEditing(true)}>Edit</a><a href="#" onClick={this.handleDelete}>Delete</a></div>)
