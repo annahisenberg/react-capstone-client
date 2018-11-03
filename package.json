@@ -13,7 +13,9 @@
         "compile:sass": "node-sass  --include-path scss ./src/styles/main.scss ./src/index.css  -w --source-map-embed true ",
         "build": "react-scripts build",
         "test": "react-scripts test --env=jsdom",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "deploy": "aws s3 cp ./build s3://annahs/ --recursive"
+
     },
     "devDependencies": {
         "node-sass": "^4.9.3",
