@@ -3,23 +3,32 @@ header {
     text-align: center;
     margin-top: 85px;
     padding-bottom: 0;
+
     @include desktop {
         margin-top: 0;
     }
+
+    .logo {
+        width: 50%;
+    }
+
     a {
         text-decoration: none;
+
         h1 {
             font-family: $cursive-font;
             color: $dark-gray;
             margin-bottom: 0;
             font-size: 47px;
         }
+
         h2 {
             font-family: $font-stack;
             color: $lighter-pink;
             margin-top: 0;
         }
     }
+
     hr {
         margin-top: 90px;
     }
