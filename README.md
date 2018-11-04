@@ -1,6 +1,6 @@
 # Annah Isenberg - Every Cook and Cranny Blog
 
-[Click here](https://aqueous-springs-80005.herokuapp.com/) to view the live app. [Click here](https://github.com/annahisenberg/react-capstone-api) to see server-side code. 
+[Click here](http://annahs.s3-website-us-east-1.amazonaws.com/) to view the live app. [Click here](https://github.com/annahisenberg/react-capstone-api) to see server-side code. 
 
 You can log in with these demo account credentials: 
 
