@@ -1,1 +1,22 @@
-@import './styles/main.scss'
+@import './styles/main.scss';
+
+
+// Random
+.rdw-editor-main {
+    border: solid 1px #dfdfdf;
+    min-height: 20rem;
+
+}
+
+.demo-wrapper {
+    width: 70%
+}
+
+.flex-container__main {
+    textarea {
+        width: 70%;
+        min-height: 4rem;
+        margin-bottom: 1rem;
+        border: solid 1px #dfdfdf;
+    }
+}

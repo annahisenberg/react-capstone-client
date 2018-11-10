@@ -5,13 +5,41 @@ import { required, nonEmpty, email } from '../validators';
 import { API_BASE_URL } from '../config';
 import { loadAuthToken } from '../local-storage';
 
-export class PostForm extends React.Component {
-    onSubmit(values) {
-        const token = loadAuthToken();
+import { EditorState, convertToRaw, ContentState } from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
+import draftToHtml from 'draftjs-to-html';
+import htmlToDraft from 'html-to-draftjs';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
+export class PostForm extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            editorState: EditorState.createEmpty(),
+            body: ''
+        }
+        this.htmlBody = React.createRef();
+    }
+
+
+    onEditorStateChange = (editorState) => {
+        this.setState({
+            editorState,
+        });
+        console.log(this.htmlBody.current.defaultValue);
+    };
+
+    onSubmit(values) {
+        const payload = {
+            ...values,
+            body: this.htmlBody.current.defaultValue
+        }
+
+        const token = loadAuthToken();
         fetch(`${API_BASE_URL}/posts`, {
             method: 'POST',
-            body: JSON.stringify(values),
+            body: JSON.stringify(payload),
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json'
@@ -73,6 +101,8 @@ export class PostForm extends React.Component {
             );
         }
 
+        const { editorState } = this.state;
+
         return (
             <form
                 onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
@@ -93,6 +123,17 @@ export class PostForm extends React.Component {
                     component={Input}
                     label="Body"
                     validate={[required, nonEmpty]}
+                />
+                <Editor
+                    editorState={editorState}
+                    wrapperClassName="demo-wrapper"
+                    editorClassName="demo-editor"
+                    onEditorStateChange={this.onEditorStateChange}
+                />
+                <textarea
+                    disabled
+                    value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
+                    ref={this.htmlBody}
                 />
                 <Field
                     name="image"

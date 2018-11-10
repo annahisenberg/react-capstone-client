@@ -10,12 +10,15 @@ import './index.scss';
 import './index.css.map';
 
 import Blog from '../src/components/Blog';
+import ScrollToTop from './utils/ScrollToTop';
 
 
 ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <Blog />
+            <ScrollToTop>
+                <Blog />
+            </ScrollToTop>
         </Router>
     </Provider>,
     document.getElementById('root')
